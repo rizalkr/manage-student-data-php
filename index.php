@@ -6,6 +6,8 @@ if(!isset($_SESSION["loged"])){
     exit;
 }
 
+
+
 require './func/functions.php';
 
 $jumlahDataPerhalaman = 4;
@@ -18,7 +20,7 @@ $awalData = ($jumlahDataPerhalaman * $halamanActive) - $jumlahDataPerhalaman;
 $mahasiswa = query( "SELECT * FROM tbl_mhs LIMIT $awalData, $jumlahDataPerhalaman");
 $number = 1;
 
-if(isset($_POST["submit"])){
+if(isset($_POST["cari"])){
     $mahasiswa = search($_POST["keyword"]);
 }
 
@@ -35,14 +37,13 @@ if(isset($_POST["submit"])){
 <body>
     <div class="title"><h1>Data Mahasiswa</h1></div>
     <div class="container">
-    <div class="container-table">
-
+    <div class="container-table"> 
 
         <!-- Fiture Search -->
         <form action="" method="post">
             <input type="text" name="keyword" id="keyword" 
              autofocus="40" autocomplete="off" placeholder="Cari nama atau nim">
-            <button type="submit" name="submit">Search</button> 
+            <button type="hide" name="cari" id="tombol-cari">Search</button> 
         </form>
         
         <a href="./crud/add.php"><button type="submit">Add MHS</button></a>
@@ -58,7 +59,7 @@ if(isset($_POST["submit"])){
         <?php endif?>
         <!-- Navigasi -->
 
-        <div class="table">
+        <div class="table" id="table">
             <table border="1" cellpadding = "10" cellspacing = "0" >
                 <tr>
                     <th>No. </th>
@@ -90,5 +91,7 @@ if(isset($_POST["submit"])){
         </div>
     </div>
     </div>
+    <script src="./js/jquery-3.7.0.min.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>

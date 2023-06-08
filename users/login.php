@@ -2,6 +2,10 @@
 session_start();
 require '../func/functions.php';
 
+if(!isset($_GET["pesan"])){
+  echo "Anda harus login terlebih dahulu";
+}
+
 if(isset($_COOKIE["key"]) && isset($_COOKIE["imagine"]))
 {
   $id = $_COOKIE["imagine"];
@@ -48,7 +52,7 @@ if(isset($_POST["login"])){
               mysqli_query($db, "INSERT INTO cookie_log VALUES($user_id, '$key_user')");
             }
 
-            header('Location: ../index.php');
+            header('Location: ../index.php?login=admin');
             exit;
         }
     }
@@ -84,12 +88,12 @@ if(isset($_POST["login"])){
                 <!-- Input Username -->
                   <div>
                       <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
-                      <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="user123" required autocomplete="off">
+                      <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="input username" required autocomplete="off">
                   </div>
                   <!-- Input Password -->
                   <div>
                       <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                      <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required  autocomplete="off">
+                      <input type="password" name="password" id="password" placeholder="input password" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required  autocomplete="off">
                   </div>
                   <div class="mb-6 flex items-center justify-between">
                   <div class="block min-h-[1.5rem] pl-[1.5rem]">

@@ -71,7 +71,7 @@ function editDbMhs($data){
 }
 
 function search($keyword){
-    $query = "SELECT * FROM tbl_mhs WHERE nim LIKE '$keyword%' OR nama LIKE '$keyword%'";
+    $query = "SELECT * FROM tbl_mhs WHERE nim LIKE '$keyword%' OR nama LIKE '$keyword%' OR jurusan LIKE '$keyword%' ";
     return query($query);
 }
 
