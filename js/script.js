@@ -10,12 +10,10 @@
 // Js Native / Js Vanilla Version
 
 const keyword = document.getElementById('keyword')
-const searchButton = document.getElementById('tombol-cari')
 let table = document.getElementById('table')
 
 keyword.addEventListener('keyup', () => {
     const xhr = new XMLHttpRequest()
-    $('#tombol-cari').hide()
 
     xhr.onreadystatechange = () => {
         if( xhr.readyState == 4 && xhr.status == 200){

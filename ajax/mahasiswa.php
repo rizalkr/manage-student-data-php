@@ -34,6 +34,7 @@ $number = 1;
             <a href="./crud/edit.php?id=<?= $mhs['id_mhs'] ?>"><input type="submit" value="Edit"></a>
             <a href="./crud/delete.php?id=<?= $mhs['id_mhs'] ?>" 
             onclick="return confirm('Yakin?')"><input type="submit" value="Delete"></a>
+            <a href="./crud/print.php?id=<?= $mhs['id_mhs'] ?>" target="_blank"><button type="submit">Cetak</button></a>
         </td>
     </tr>
     <?php $number++;?>

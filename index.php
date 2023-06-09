@@ -43,11 +43,11 @@ if(isset($_POST["cari"])){
         <form action="" method="post">
             <input type="text" name="keyword" id="keyword" 
              autofocus="40" autocomplete="off" placeholder="Cari nama atau nim">
-            <button type="hide" name="cari" id="tombol-cari">Search</button> 
+            <button type="submit" hidden name="cari" id="tombol-cari">Search</button> 
         </form>
         
-        <a href="./crud/add.php"><button type="submit">Add MHS</button></a>
-        <a href="./users/logout.php"><button type="submit">Logout</button></a>
+        <a href="./crud/add.php" class="addMhs"><button type="submit">Add MHS</button></a>
+        <a href="./users/logout.php" class="logout"><button type="submit">Logout</button></a>
 
         <!-- Navigasi -->
         <?php if($halamanActive > 1):?>
@@ -69,6 +69,7 @@ if(isset($_POST["cari"])){
                     <th>Jurusan</th>
                     <th>Handle</th>
                 </tr>
+                
                 <?php 
                 foreach($mahasiswa as $mhs):?>
                 <tr>
@@ -83,6 +84,7 @@ if(isset($_POST["cari"])){
                         <a href="./crud/edit.php?id=<?= $mhs['id_mhs'] ?>"><input type="submit" value="Edit"></a>
                         <a href="./crud/delete.php?id=<?= $mhs['id_mhs'] ?>" 
                         onclick="return confirm('Yakin?')"><input type="submit" value="Delete"></a>
+                        <a href="./crud/print.php?id=<?= $mhs['id_mhs'] ?>" target="_blank"><button type="submit">Cetak</button></a>
                     </td>
                 </tr>
                 <?php $number++;?>
